@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anwar Landmark — Architectural Living Crafted for Generations</title>
+  <meta name="description" content="Scroll to watch Anwar Landmark's architectural tower rise from 0% blueprint to 100% reality. Explore luxury residential projects across Dhaka." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="is-loading">
+  <!-- Scroll Progress Hairline -->
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress__bar" id="scrollProgressBar"></div>
+  </div>
+
+  <!-- Architectural Preloader Curtain -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <div class="preloader__brand">
+        <img src="assets/images/logo.svg" alt="Anwar Landmark" class="preloader__logo" />
+      </div>
+      <div class="preloader__meta">
+        <span class="preloader__tag">Dhaka · Architectural Landmarks</span>
+        <span class="preloader__count" id="preloaderCount">00%</span>
+      </div>
+      <div class="preloader__track">
+        <div class="preloader__fill" id="preloaderFill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Glass Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="site-header__inner">
+      <a href="#hero" class="brand-mark" aria-label="Anwar Landmark Home">
+        <img src="assets/images/logo.svg" alt="Anwar Landmark" class="brand-mark__img" />
+        <span class="brand-mark__pill">EST. ANWAR GROUP</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary Navigation">
+        <a href="#hero" class="site-nav__link">0–100% Build</a>
+        <a href="#commitment" class="site-nav__link">Blueprint</a>
+        <a href="#excellence" class="site-nav__link">Design</a>
+        <a href="#pillars" class="site-nav__link">Curtain Stack</a>
+        <a href="#corridor" class="site-nav__link">Floating Slide</a>
+        <a href="#portfolio" class="site-nav__link">Projects</a>
+        <a href="#gallery" class="site-nav__link">Gallery</a>
+      </nav>
+
+      <div class="site-header__actions">
+        <a href="tel:16709" class="header-hotline" aria-label="Call Hotline 16709">
+          <span class="pulse-dot"></span>
+          <span>16709</span>
+        </a>
+        <a href="#inquiry" class="btn btn--emerald btn--sm">
+          <span>Book Visit</span>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 13L13 3M13 3H5.5M13 3V10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle Menu" aria-expanded="false">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Fullscreen Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="mobile-drawer__links">
+      <a href="#hero" class="mobile-drawer__link">00 · 0–100% Building Scroll</a>
+      <a href="#manifesto" class="mobile-drawer__link">01 · Philosophy</a>
+      <a href="#commitment" class="mobile-drawer__link">02 · Blueprint Drawing</a>
+      <a href="#excellence" class="mobile-drawer__link">03 · All Eyes on Design</a>
+      <a href="#pillars" class="mobile-drawer__link">04 · Curtain Stack</a>
+      <a href="#corridor" class="mobile-drawer__link">05 · Floating Corridor</a>
+      <a href="#portfolio" class="mobile-drawer__link">06 · Ongoing &amp; Ready</a>
+      <a href="#gallery" class="mobile-drawer__link">07 · Velocity Gallery</a>
+      <a href="#inquiry" class="mobile-drawer__link">08 · Private Inquiry</a>
+    </div>
+  </div>
+
+  <main id="smooth-wrapper">
+    <!-- =====================================================================
+         SECTION 1: 0% -> 100% REAL PHOTOREALISTIC BUILDING SEQUENCE HERO
+         ===================================================================== -->
+    <section class="hero-build-stage" id="hero" data-theme="dark">
+      <div class="hero-build-stage__pinned">
+        <!-- High-DPI Canvas scrubbing 169 real photorealistic construction frames -->
+        <canvas id="buildingCanvas" class="building-canvas" aria-hidden="true"></canvas>
+
+        <!-- Subtle Left & Bottom Scrim so the Center Building Stays Crystal Clear -->
+        <div class="hero-stage__scrim" aria-hidden="true"></div>
+
+        <!-- Foreground Editorial + Live Construction Telemetry -->
+        <div class="hero-build-ui container">
+          <div class="hero-build-top">
+            <div class="hero-eyebrow">
+              <span class="eyebrow-dot"></span>
+              <span>ANWAR LANDMARK · SCROLL TO BUILD 0% → 100%</span>
+            </div>
+
+            <!-- Live Construction Telemetry Box -->
+            <div class="build-hud" aria-live="polite">
+              <div class="build-hud__row">
+                <span class="build-hud__label">COMPLETION</span>
+                <strong class="build-hud__percent" id="buildPercent">00%</strong>
+              </div>
+              <div class="build-hud__bar">
+                <div class="build-hud__bar-fill" id="buildBarFill"></div>
+              </div>
+              <div class="build-hud__meta">
+                <span id="buildPhaseLabel">PHASE 01 · FOUNDATION</span>
+                <span id="buildFloorLabel">FRAME 001 / 169</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-build-center hero-build-center--clear">
+            <div class="hero-copy-col">
+              <h1 class="hero-title hero-title--navana">
+                <span class="hero-word-wrap"><span class="hero-word" data-hero-word>Broaden</span></span>
+                <span class="hero-word-wrap"><span class="hero-word" data-hero-word>Living</span></span>
+                <span class="hero-word-wrap"><span class="hero-word hero-word--em" data-hero-word>Horizons</span></span>
+              </h1>
+              <p class="hero-lead">
+                Scroll to watch the full architectural tower rise from ground blueprint to a 100% completed green sanctuary.
+              </p>
+
+              <div class="hero-cta-group">
+                <button type="button" class="btn btn--emerald btn--lg" id="autoBuildBtn">
+                  <span>Auto-Build 0 → 100%</span>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M8 3V13M8 13L3.5 8.5M8 13L12.5 8.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <a href="#portfolio" class="btn btn--ghost btn--lg">
+                  <span>Explore Projects</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-build-bottom">
+            <span class="hero-scroll-hint">Scroll down to construct · 0% to 100%</span>
+            <span class="hero-ready-tag" id="heroReadyTag">FOUNDATION · 00%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 2: RISING MONOLITH MANIFESTO (Rises Over Completed 100% Hero)
+         ===================================================================== -->
+    <section class="manifesto-section rising-curtain" id="manifesto" data-theme="light">
+      <div class="rising-curtain__shell">
+        <div class="container manifesto-grid">
+          <div class="manifesto-copy">
+            <span class="section-index">01 / PHILOSOPHY</span>
+            <h2 class="display-heading">
+              <span class="line-mask"><span class="line-inner">Building dreams,</span></span>
+              <span class="line-mask"><span class="line-inner">shaping <em>landscapes</em>,</span></span>
+              <span class="line-mask"><span class="line-inner">crafting communities.</span></span>
+            </h2>
+            <p class="body-copy">
+              Backed by nearly two centuries of trust from Anwar Group, every Anwar Landmark address transforms visionary architectural design into quiet, sunlit permanence — engineered for multi-generational happiness and urban harmony.
+            </p>
+
+            <div class="metrics-strip">
+              <div class="metric-item">
+                <strong class="metric-value" data-count="1834" data-prefix="Est. ">Est. 1834</strong>
+                <span class="metric-label">Anwar Group Heritage</span>
+              </div>
+              <div class="metric-item">
+                <strong class="metric-value" data-count="9" data-suffix="+">0</strong>
+                <span class="metric-label">Ongoing Developments</span>
+              </div>
+              <div class="metric-item">
+                <strong class="metric-value" data-count="100" data-suffix="%">0</strong>
+                <span class="metric-label">RAJUK Approved Craft</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="manifesto-visuals">
+            <div class="clip-reveal-frame" data-clip-reveal>
+              <img src="assets/images/home-about.jpg" alt="Anwar Landmark architectural facade" class="parallax-img" data-parallax="-14" loading="lazy" />
+              <div class="frame-caption">
+                <span>FLAGSHIP LEGACY</span>
+                <strong>Whispering Green · Gulshan 2</strong>
+              </div>
+            </div>
+            <div class="floating-inset-card" data-parallax="18">
+              <img src="assets/images/hero-whispering-green.jpg" alt="Anwar Landmark Whispering Green exterior" loading="lazy" />
+              <div class="floating-inset-card__badge">
+                <span class="badge-dot"></span> Up to 6,344 sft Duplexes
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 3: NAVANA-INSPIRED SCROLL-DRAWN SVG ELEVATION & KINETIC TYPE
+         ===================================================================== -->
+    <section class="commitment-section" id="commitment" data-theme="light">
+      <div class="container commitment-layout">
+        <div class="commitment-type">
+          <span class="section-index">02 / ARCHITECTURAL PROMISE</span>
+          <h2 class="commitment-title">
+            <span class="commit-line commit-line--left">Committed to</span>
+            <span class="commit-line commit-line--right"><em>Your Dreams</em></span>
+            <span class="commit-line commit-line--left">Driven by</span>
+            <span class="commit-line commit-line--emerald">Emerald Integrity</span>
+          </h2>
+          <p class="body-copy commitment-copy">
+            Every tower begins as a precise architectural elevation — sketched for natural light, cross-ventilation, and enduring structural grace before a single brick is laid.
+          </p>
+          <div class="commitment-stats">
+            <div><span>DESIGN ETHOS</span><strong>Precision Elevation</strong></div>
+            <div><span>DELIVERY RECORD</span><strong>Unwavering Trust</strong></div>
+          </div>
+        </div>
+
+        <div class="commitment-blueprint">
+          <div class="blueprint-stage">
+            <img src="assets/images/proj-sylvestra.jpg" alt="Sylvestra architectural completion" class="blueprint-stage__photo" id="blueprintPhoto" loading="lazy" />
+            <!-- Scroll-drawn architectural SVG elevation (stroke-dashoffset scrubbed on scroll) -->
+            <svg class="blueprint-svg" id="blueprintSvg" viewBox="0 0 420 560" fill="none" aria-hidden="true">
+              <!-- Outer structural frame -->
+              <path class="bp-path" d="M70 520 V115 L140 55 H280 L350 115 V520 H70 Z" />
+              <!-- Vertical core columns -->
+              <path class="bp-path" d="M140 55 V520 M210 55 V520 M280 55 V520" />
+              <!-- Podium & Grand Entrance Canopy -->
+              <path class="bp-path" d="M40 520 H380 M95 460 H325 M165 520 V460 H255 V520" />
+              <!-- Cantilevered floor plates -->
+              <path class="bp-path" d="M70 420 H350 M70 375 H350 M70 330 H350 M70 285 H350 M70 240 H350 M70 195 H350 M70 150 H350 M95 115 H325" />
+              <!-- Biophilic terrace cutouts & balcony fins -->
+              <path class="bp-path bp-path--emerald" d="M95 420 V375 H135 V420 M285 375 V330 H325 V375 M95 330 V285 H135 V330 M285 285 V240 H325 V285 M95 240 V195 H135 V240 M285 195 V150 H325 V195" />
+              <!-- Rooftop pergola & spire -->
+              <path class="bp-path bp-path--emerald" d="M150 55 V26 H270 V55 M210 26 V8" />
+              <!-- Architectural dimension ticks -->
+              <path class="bp-path bp-path--thin" d="M36 520 V55 M28 520 H44 M28 55 H44 M384 520 V115 M376 520 H392 M376 115 H392" />
+            </svg>
+            <span class="blueprint-badge">SCROLL-DRAWN ELEVATION · SYLVESTRA</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 4: NAVANA-INSPIRED "ALL EYES ON DESIGN" STICKY EXCELLENCE SLIDER
+         ===================================================================== -->
+    <section class="excellence-section" id="excellence" data-theme="dark">
+      <div class="excellence-sticky">
+        <!-- Crossfading Full-Bleed Playable Architectural Video Backdrops -->
+        <div class="excellence-bgs" aria-hidden="true">
+          <video
+            class="ex-bg is-active"
+            data-ex-bg="0"
+            src="assets/videos/excellence-01.mp4"
+            poster="assets/images/hero-elysium.jpg"
+            muted
+            loop
+            playsinline
+            preload="auto"
+          ></video>
+          <video
+            class="ex-bg"
+            data-ex-bg="1"
+            src="assets/videos/excellence-02.mp4"
+            poster="assets/images/hero-sylvestra.jpg"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+          ></video>
+          <video
+            class="ex-bg"
+            data-ex-bg="2"
+            src="assets/videos/excellence-03.mp4"
+            poster="assets/images/hero-wisteria.jpg"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+          ></video>
+          <video
+            class="ex-bg"
+            data-ex-bg="3"
+            src="assets/videos/excellence-04.mp4"
+            poster="assets/images/hero-lake-serene.jpg"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+          ></video>
+          <div class="excellence-scrim"></div>
+        </div>
+
+        <div class="container excellence-grid">
+          <div class="excellence-left">
+            <span class="section-index section-index--light">03 / ALL EYES ON DESIGN</span>
+            <h2 class="excellence-giant">
+              All Eyes<br />on <em>Designs</em>
+            </h2>
+            <div class="excellence-dots" id="exDots">
+              <button type="button" class="ex-dot is-active" data-ex-btn="0">01</button>
+              <button type="button" class="ex-dot" data-ex-btn="1">02</button>
+              <button type="button" class="ex-dot" data-ex-btn="2">03</button>
+              <button type="button" class="ex-dot" data-ex-btn="3">04</button>
+            </div>
+          </div>
+
+          <!-- Elevated Right-Hand Architectural Card (Navana slide-info homage) -->
+          <div class="excellence-card" id="excellenceCard">
+            <div class="excellence-card__top">
+              <span class="ex-counter" id="exCounter">01 — 04</span>
+              <span class="ex-tag" id="exTag">ENGINEERING</span>
+            </div>
+            <h3 class="ex-title" id="exTitle">Superior Structural Quality.</h3>
+            <div class="ex-thumb-wrap">
+              <img src="assets/images/proj-elysium.jpg" alt="Elysium structural facade" id="exThumb" loading="lazy" />
+            </div>
+            <p class="ex-desc" id="exDesc">
+              Precision-engineered frames, BNBC seismic compliance, and weather-resilient material palettes crafted for decades of poise.
+            </p>
+            <div class="ex-progress">
+              <div class="ex-progress__fill" id="exProgressFill"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 5: STICKY CURTAIN STACK (Springs One Section Rises Over Another)
+         ===================================================================== -->
+    <section class="curtain-stack" id="pillars" aria-label="Architectural Pillars">
+      <aside class="curtain-stack__nav" aria-label="Pillar Progress">
+        <button class="stack-pip is-active" data-stack-target="0"><span>01</span><em>Biophilic</em></button>
+        <button class="stack-pip" data-stack-target="1"><span>02</span><em>Structural</em></button>
+        <button class="stack-pip" data-stack-target="2"><span>03</span><em>Enclaves</em></button>
+      </aside>
+
+      <article class="stack-slide stack-slide--1" data-theme="dark" data-stack-index="0">
+        <div class="stack-slide__bg">
+          <img src="assets/images/hero-lake-serene.jpg" alt="Anwar Landmark Lake Serene" class="stack-slide__img" loading="lazy" />
+          <div class="stack-slide__overlay"></div>
+        </div>
+        <div class="container stack-slide__inner">
+          <div class="stack-slide__left">
+            <span class="pill-tag pill-tag--emerald">01 · BIOPHILIC URBANISM</span>
+            <h2 class="stack-title">Architecture That <em>Breathes</em> With Nature</h2>
+            <p class="stack-desc">
+              Generous south-east orientation, shaded veranda pockets, and lush rooftop gardens turn high-density city living into tranquil green retreats.
+            </p>
+            <div class="stack-specs">
+              <div><span>VENTILATION</span><strong>Cross-Flow Layouts</strong></div>
+              <div><span>TERRACES</span><strong>Skyline Green Decks</strong></div>
+            </div>
+          </div>
+          <div class="stack-slide__right">
+            <div class="floating-plate" data-parallax="12">
+              <img src="assets/images/proj-lake-serene.jpg" alt="Lake Serene courtyard view" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="stack-slide stack-slide--2" data-theme="light" data-stack-index="1">
+        <div class="container stack-slide__inner stack-slide__inner--light">
+          <div class="stack-slide__left">
+            <span class="pill-tag pill-tag--forest">02 · STRUCTURAL PERMANENCE</span>
+            <h2 class="stack-title">Precision Form &amp; <em>Timeless</em> Detailing</h2>
+            <p class="stack-desc">
+              From double-height reception lobbies to seismic-grade structural frames and acoustic glazing, every millimeter is detailed for enduring value.
+            </p>
+            <div class="stack-specs stack-specs--light">
+              <div><span>ENGINEERING</span><strong>BNBC &amp; Seismic Spec</strong></div>
+              <div><span>FINISHES</span><strong>Architectural Stone &amp; Timber</strong></div>
+            </div>
+          </div>
+          <div class="stack-slide__right stack-slide__right--collage">
+            <div class="collage-card collage-card--tall" data-parallax="-10">
+              <img src="assets/images/proj-elysium.jpg" alt="Elysium in Jolshiri" loading="lazy" />
+              <span class="collage-caption">Elysium · Jolshiri Sec-17</span>
+            </div>
+            <div class="collage-card collage-card--wide" data-parallax="15">
+              <img src="assets/images/hero-allium.jpg" alt="Allium in Bashundhara" loading="lazy" />
+              <span class="collage-caption">Allium · Bashundhara Block-F</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="stack-slide stack-slide--3" data-theme="dark" data-stack-index="2">
+        <div class="stack-slide__bg">
+          <img src="assets/images/hero-whistling-woods.jpg" alt="Whistling Woods in Banani" class="stack-slide__img" loading="lazy" />
+          <div class="stack-slide__overlay stack-slide__overlay--jade"></div>
+        </div>
+        <div class="container stack-slide__inner">
+          <div class="stack-slide__left">
+            <span class="pill-tag pill-tag--emerald">03 · PRIME ENCLAVES</span>
+            <h2 class="stack-title">Addresses That Define <em>Tomorrow’s</em> Dhaka</h2>
+            <p class="stack-desc">
+              Positioned along tree-lined avenues of Gulshan, Banani, Bashundhara R/A, Jolshiri Abashon, Uttara, and Mohammadpur — near top schools, lakes, and diplomatic corridors.
+            </p>
+            <div class="stack-specs">
+              <div><span>UPCOMING HUB</span><strong>Jolshiri Sectors 16 &amp; 17</strong></div>
+              <div><span>HEARTLAND</span><strong>Bashundhara Blocks F &amp; M</strong></div>
+            </div>
+          </div>
+          <div class="stack-slide__right">
+            <div class="floating-plate floating-plate--portrait" data-parallax="-12">
+              <img src="assets/images/proj-whistling-woods.jpg" alt="Anwar Landmark Whistling Woods" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 6: PINNED HORIZONTAL FLOATING SLIDE CORRIDOR
+         ===================================================================== -->
+    <section class="horizontal-corridor" id="corridor" data-theme="light">
+      <div class="horizontal-corridor__sticky">
+        <div class="container corridor-head">
+          <div>
+            <span class="section-index">04 / FLOATING SHOWCASE</span>
+            <h2 class="display-heading">Drifting Through Our <em>Landmark</em> Portfolio</h2>
+          </div>
+          <div class="corridor-hint">
+            <span>Scroll to glide</span>
+            <span class="corridor-counter" id="corridorCounter">01 — 07</span>
+          </div>
+        </div>
+
+        <div class="corridor-track-wrap">
+          <div class="corridor-track" id="corridorTrack"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 7: NAVANA-INSPIRED ANIMATED CROSSHAIR HERITAGE GRID
+         ===================================================================== -->
+    <section class="crosshair-units" id="heritage-grid" data-theme="light">
+      <div class="container">
+        <div class="crosshair-units__head">
+          <span class="section-index">05 / ANWAR GROUP ECOSYSTEM</span>
+          <h2 class="display-heading">Vertical Integration, <em>Singular</em> Craft</h2>
+        </div>
+
+        <div class="crosshair-grid" id="crosshairGrid">
+          <div class="crosshair-line crosshair-line--h" aria-hidden="true"></div>
+          <div class="crosshair-line crosshair-line--v" aria-hidden="true"></div>
+
+          <div class="crosshair-cell">
+            <span class="crosshair-num">01</span>
+            <h3>Residential Sanctuaries</h3>
+            <p>Bespoke boutique and full-floor condominiums across Dhaka’s premier neighborhoods.</p>
+          </div>
+          <div class="crosshair-cell">
+            <span class="crosshair-num">02</span>
+            <h3>Commercial Towers</h3>
+            <p>High-visibility architectural office landmarks designed for institutional prestige.</p>
+          </div>
+          <div class="crosshair-cell">
+            <span class="crosshair-num">03</span>
+            <h3>Anwar Cement &amp; Steel</h3>
+            <p>In-house foundational material heritage ensuring unmatched structural reliability.</p>
+          </div>
+          <div class="crosshair-cell">
+            <span class="crosshair-num">04</span>
+            <h3>Landowner Partnerships</h3>
+            <p>Transparent joint-venture development maximizing long-term asset value and aesthetics.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 8: INTERACTIVE FILTERABLE PORTFOLIO (Ongoing + Ready)
+         ===================================================================== -->
+    <section class="portfolio-section" id="portfolio" data-theme="light">
+      <div class="container">
+        <div class="portfolio-header">
+          <div>
+            <span class="section-index">06 / COLLECTION</span>
+            <h2 class="display-heading">Ongoing &amp; Signature <em>Developments</em></h2>
+          </div>
+          <p class="portfolio-subtitle">
+            Curated directly from Anwar Landmark’s ongoing and ready portfolio. Select any project to inspect floor specs, location, and architectural highlights.
+          </p>
+        </div>
+
+        <div class="filter-bar" role="region" aria-label="Filter projects">
+          <div class="filter-group" id="statusFilters">
+            <button class="filter-chip is-active" data-status="all">All Projects</button>
+            <button class="filter-chip" data-status="Ongoing">Ongoing (9)</button>
+            <button class="filter-chip" data-status="Ready">Ready &amp; Flagship</button>
+          </div>
+
+          <div class="filter-group filter-group--zones" id="zoneFilters">
+            <button class="zone-chip is-active" data-zone="all">All Zones</button>
+            <button class="zone-chip" data-zone="Bashundhara">Bashundhara R/A</button>
+            <button class="zone-chip" data-zone="Jolshiri">Jolshiri</button>
+            <button class="zone-chip" data-zone="Uttara">Uttara</button>
+            <button class="zone-chip" data-zone="Gulshan & Banani">Gulshan &amp; Banani</button>
+            <button class="zone-chip" data-zone="Mohammadpur">Mohammadpur</button>
+          </div>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid"></div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 9: DUAL-TRACK VELOCITY GALLERY
+         ===================================================================== -->
+    <section class="velocity-gallery" id="gallery" data-theme="dark">
+      <div class="container velocity-gallery__head">
+        <span class="section-index section-index--light">07 / ARCHITECTURAL GALLERY</span>
+        <h2 class="display-heading display-heading--light">Light, Proportion &amp; <em>Emerald</em> Canopy</h2>
+      </div>
+
+      <div class="velocity-marquee" id="velocityGallery">
+        <div class="velocity-track" data-velocity-row="1">
+          <figure class="gal-tile" data-gal-title="Whispering Green · Gulshan 2"><img src="assets/images/hero-whispering-green.jpg" alt="Whispering Green" loading="lazy" /></figure>
+          <figure class="gal-tile" data-gal-title="Elysium · Jolshiri Sector 17"><img src="assets/images/hero-elysium.jpg" alt="Elysium" loading="lazy" /></figure>
+          <figure class="gal-tile" data-gal-title="Sylvestra · Bashundhara Block-M"><img src="assets/images/hero-sylvestra.jpg" alt="Sylvestra" loading="lazy" /></figure>
+          <figure class="gal-tile" data-gal-title="Lake Serene · Dhaka"><img src="assets/images/hero-lake-serene.jpg" alt="Lake Serene" loading="lazy" /></figure>
+          <figure class="gal-tile" data-gal-title="Gold Dust · Signature Living"><img src="assets/images/hero-gold-dust.jpg" alt="Gold Dust" loading="lazy" /></figure>
+          <figure class="gal-tile" data-gal-title="Whispering Green · Gulshan 2"><img src="assets/images/hero-whispering-green.jpg" alt="Whispering Green" loading="lazy" /></figure>
+          <figure class="gal-tile" data-gal-title="Elysium · Jolshiri Sector 17"><img src="assets/images/hero-elysium.jpg" alt="Elysium" loading="lazy" /></figure>
+          <figure class="gal-tile" data-gal-title="Sylvestra · Bashundhara Block-M"><img src="assets/images/hero-sylvestra.jpg" alt="Sylvestra" loading="lazy" /></figure>
+          <figure class="gal-tile" data-gal-title="Lake Serene · Dhaka"><img src="assets/images/hero-lake-serene.jpg" alt="Lake Serene" loading="lazy" /></figure>
+          <figure class="gal-tile" data-gal-title="Gold Dust · Signature Living"><img src="assets/images/hero-gold-dust.jpg" alt="Gold Dust" loading="lazy" /></figure>
+        </div>
+
+        <div class="velocity-track velocity-track--reverse" data-velocity-row="2">
+          <figure class="gal-tile" data-gal-title="Whistling Woods · Banani"><img src="assets/images/hero-whistling-woods.jpg" alt="Whistling Woods" loading="lazy" /></figure>
+          <figure class="gal-tile" data-gal-title="Wisteria · Bashundhara Block-M"><img src="assets/images/hero-wisteria.jpg" alt="Wisteria" loading="lazy" /></figure>
+          <figure class="gal-tile" data-gal-title="Mimosa · Jolshiri Sector 16"><img src="assets/images/hero-mimosa.jpg" alt="Mimosa" loading="lazy" /></figure>
+          <figure class="gal-tile" data-gal-title="Allium · Bashundhara Block-F"><img src="assets/images/hero-allium.jpg" alt="Allium" loading="lazy" /></figure>
+          <figure class="gal-tile" data-gal-title="Nemesia · Crafted Residences"><img src="assets/images/hero-nemesia.jpg" alt="Nemesia" loading="lazy" /></figure>
+          <figure class="gal-tile" data-gal-title="Whistling Woods · Banani"><img src="assets/images/hero-whistling-woods.jpg" alt="Whistling Woods" loading="lazy" /></figure>
+          <figure class="gal-tile" data-gal-title="Wisteria · Bashundhara Block-M"><img src="assets/images/hero-wisteria.jpg" alt="Wisteria" loading="lazy" /></figure>
+          <figure class="gal-tile" data-gal-title="Mimosa · Jolshiri Sector 16"><img src="assets/images/hero-mimosa.jpg" alt="Mimosa" loading="lazy" /></figure>
+          <figure class="gal-tile" data-gal-title="Allium · Bashundhara Block-F"><img src="assets/images/hero-allium.jpg" alt="Allium" loading="lazy" /></figure>
+          <figure class="gal-tile" data-gal-title="Nemesia · Crafted Residences"><img src="assets/images/hero-nemesia.jpg" alt="Nemesia" loading="lazy" /></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 10: DHAKA ENCLAVE EXPLORER + PRIVATE INQUIRY & FOOTER
+         ===================================================================== -->
+    <section class="enclaves-section rising-curtain" id="enclaves" data-theme="light">
+      <div class="rising-curtain__shell">
+        <div class="container enclaves-grid">
+          <div class="enclaves-list-col">
+            <span class="section-index">08 / LOCATION CORRIDORS</span>
+            <h2 class="display-heading">Prime Dhaka <em>Neighborhoods</em></h2>
+            <p class="body-copy">Hover or select an enclave to preview Anwar Landmark’s presence across the capital’s most sought-after residential corridors.</p>
+
+            <ul class="enclave-list" id="enclaveList">
+              <li class="enclave-item is-active" data-enclave="bashundhara">
+                <button type="button">
+                  <span class="enclave-name">Bashundhara R/A</span>
+                  <span class="enclave-meta">Allium · Sylvestra · Wisteria · Amaryllis</span>
+                  <span class="enclave-arrow">↗</span>
+                </button>
+              </li>
+              <li class="enclave-item" data-enclave="jolshiri">
+                <button type="button">
+                  <span class="enclave-name">Jolshiri Abashon</span>
+                  <span class="enclave-meta">Mimosa · Elysium · Plot-8 Road-507</span>
+                  <span class="enclave-arrow">↗</span>
+                </button>
+              </li>
+              <li class="enclave-item" data-enclave="uttara">
+                <button type="button">
+                  <span class="enclave-name">Uttara Sectors 4, 6 &amp; 7</span>
+                  <span class="enclave-meta">Isha Kha Avenue · Sector 4 · Sector 7</span>
+                  <span class="enclave-arrow">↗</span>
+                </button>
+              </li>
+              <li class="enclave-item" data-enclave="gulshan">
+                <button type="button">
+                  <span class="enclave-name">Gulshan 2 &amp; Banani</span>
+                  <span class="enclave-meta">Whispering Green · Whistling Woods</span>
+                  <span class="enclave-arrow">↗</span>
+                </button>
+              </li>
+              <li class="enclave-item" data-enclave="mohammadpur">
+                <button type="button">
+                  <span class="enclave-name">Mohammadpur</span>
+                  <span class="enclave-meta">Anwar Landmark Rosetta · Babar Road</span>
+                  <span class="enclave-arrow">↗</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <div class="enclaves-preview-col">
+            <div class="enclave-preview-card" id="enclavePreview">
+              <img src="assets/images/hero-sylvestra.jpg" alt="Bashundhara R/A Enclave Preview" id="enclavePreviewImg" loading="lazy" />
+              <div class="enclave-preview-card__overlay">
+                <span class="pill-tag pill-tag--emerald" id="enclavePreviewTag">BASHUNDHARA R/A · BLOCKS F &amp; M</span>
+                <h3 id="enclavePreviewTitle">Tree-Lined Blocks &amp; Corner Plots</h3>
+                <p id="enclavePreviewDesc">Home to Allium, Sylvestra, and Wisteria — crafted 2,030 to 2,198 sft luxury residences steps from schools and clubs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="inquiry-footer" id="inquiry" data-theme="dark">
+      <div class="container inquiry-grid">
+        <div class="inquiry-copy">
+          <span class="section-index section-index--light">09 / PRIVATE CONSULTATION</span>
+          <h2 class="display-heading display-heading--light">Let Us Guide You <em>Home</em></h2>
+          <p class="body-copy body-copy--light">
+            Schedule a private site tour, request floor plans, or discuss joint-venture landowner opportunities with Anwar Landmark’s advisory team.
+          </p>
+
+          <div class="contact-cards">
+            <div class="contact-card">
+              <span>HOTLINE</span>
+              <a href="tel:16709">16709</a>
+              <small>+88 01329-673727 · 02223388479</small>
+            </div>
+            <div class="contact-card">
+              <span>HEAD OFFICE</span>
+              <strong>Baitul Hossain Building (13th Floor)</strong>
+              <small>27 Dilkusha C/A, Dhaka-1000</small>
+            </div>
+            <div class="contact-card">
+              <span>EMAIL</span>
+              <a href="mailto:info.alml@anwargroup.net">info.alml@anwargroup.net</a>
+              <small>anwarlandmark.com</small>
+            </div>
+          </div>
+        </div>
+
+        <form class="inquiry-form" id="inquiryForm">
+          <div class="form-row">
+            <label for="inqName">Full Name</label>
+            <input id="inqName" type="text" placeholder="e.g. Tanvir Ahmed" required />
+          </div>
+          <div class="form-row form-row--split">
+            <div>
+              <label for="inqPhone">Phone Number</label>
+              <input id="inqPhone" type="tel" placeholder="+880 1XXX-XXXXXX" required />
+            </div>
+            <div>
+              <label for="inqZone">Preferred Zone</label>
+              <select id="inqZone">
+                <option value="Bashundhara R/A">Bashundhara R/A</option>
+                <option value="Jolshiri Abashon">Jolshiri Abashon</option>
+                <option value="Uttara">Uttara</option>
+                <option value="Gulshan / Banani">Gulshan / Banani</option>
+                <option value="Mohammadpur">Mohammadpur</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="inqProject">Project or Inquiry Type</label>
+            <input id="inqProject" type="text" placeholder="e.g. Sylvestra, Elysium, or Landowner Partnership" />
+          </div>
+          <button type="submit" class="btn btn--emerald btn--lg btn--full">
+            <span>Request Private Tour</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <p class="form-feedback" id="formFeedback" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <footer class="site-footer container">
+        <div class="site-footer__brand">
+          <img src="assets/images/logo-footer.svg" alt="Anwar Landmark" class="site-footer__logo" />
+          <p>Building dreams, shaping landscapes, and creating enduring communities since Anwar Group’s founding heritage.</p>
+        </div>
+        <div class="site-footer__links">
+          <a href="https://anwarlandmark.com/residential/ongoing" target="_blank" rel="noopener">Ongoing Residential ↗</a>
+          <a href="https://anwarlandmark.com/projects?location=" target="_blank" rel="noopener">All Projects ↗</a>
+          <a href="#hero">Back to Top ↑</a>
+        </div>
+        <div class="site-footer__copy">
+          <span>© 2026 Anwar Landmark · Concept Showcase</span>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <!-- Project Inspector Modal (<dialog>) -->
+  <dialog class="project-dialog" id="projectDialog" aria-labelledby="dialogTitle">
+    <div class="project-dialog__card">
+      <button class="project-dialog__close" id="dialogClose" type="button" aria-label="Close project details">✕</button>
+      <div class="project-dialog__media">
+        <img src="" alt="" id="dialogImg" />
+        <span class="pill-tag pill-tag--emerald project-dialog__status" id="dialogStatus">Ongoing</span>
+      </div>
+      <div class="project-dialog__body">
+        <span class="section-index" id="dialogZone">DHAKA</span>
+        <h3 class="project-dialog__title" id="dialogTitle">Project Name</h3>
+        <p class="project-dialog__address" id="dialogAddress"></p>
+
+        <div class="dialog-specs" id="dialogSpecs"></div>
+
+        <p class="project-dialog__desc" id="dialogDesc"></p>
+
+        <div class="project-dialog__actions">
+          <a href="#inquiry" class="btn btn--emerald" id="dialogBookBtn">Schedule Site Visit</a>
+          <a href="#" target="_blank" rel="noopener" class="btn btn--outline-dark" id="dialogExternalLink">Official Project Page ↗</a>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Smooth Scroll & Scroll-Trigger Engine (Lenis + GSAP 3 + ScrollTrigger) -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
